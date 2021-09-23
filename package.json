@@ -1,0 +1,8 @@
+{
+  "name": "lep-landing",
+  "version": "1.0.0",
+  "main": "index.html",
+  "repository": "https://github.com/lepgold/lep-landing",
+  "author": "1COIN Assets",
+  "license": "MIT"
+}
