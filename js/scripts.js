@@ -26,50 +26,50 @@ $(function () {
         arrows: false
     });
 
-    //toggle scroll menu
-    var scrollTop = 0;
-    $(window).scroll(function () {
-        var scroll = $(window).scrollTop();
-        //adjust menu background
-        if (scroll > 80) {
-            if (scroll > scrollTop) {
-                $('.smart-scroll').addClass('scrolling').removeClass('up');
-            } else {
-                $('.smart-scroll').addClass('up');
-            }
-        } else {
-            // remove if scroll = scrollTop
-            $('.smart-scroll').removeClass('scrolling').removeClass('up');
-        }
+    // //toggle scroll menu
+    // var scrollTop = 0;
+    // $(window).scroll(function () {
+    //     var scroll = $(window).scrollTop();
+    //     //adjust menu background
+    //     if (scroll > 80) {
+    //         if (scroll > scrollTop) {
+    //             $('.smart-scroll').addClass('scrolling').removeClass('up');
+    //         } else {
+    //             $('.smart-scroll').addClass('up');
+    //         }
+    //     } else {
+    //         // remove if scroll = scrollTop
+    //         $('.smart-scroll').removeClass('scrolling').removeClass('up');
+    //     }
 
-        scrollTop = scroll;
+    //     scrollTop = scroll;
 
-        // adjust scroll to top
-        if (scroll >= 600) {
-            $('.scroll-top').addClass('active');
-        } else {
-            $('.scroll-top').removeClass('active');
-        }
-        return false;
-    });
+    //     // adjust scroll to top
+    //     if (scroll >= 600) {
+    //         $('.scroll-top').addClass('active');
+    //     } else {
+    //         $('.scroll-top').removeClass('active');
+    //     }
+    //     return false;
+    // });
 
     // scroll top top
-    $('.scroll-top').click(function () {
-        $('html, body').stop().animate({
-            scrollTop: 0
-        }, 1000);
-    });
+    // $('.scroll-top').click(function () {
+    //     $('html, body').stop().animate({
+    //         scrollTop: 0
+    //     }, 1000);
+    // });
 
-    /**Theme switcher - DEMO PURPOSE ONLY */
-    $('.switcher-trigger').click(function () {
-        $('.switcher-wrap').toggleClass('active');
-    });
-    $('.color-switcher ul li').click(function () {
-        var color = $(this).attr('data-color');
-        $('#theme-color').attr("href", "css/" + color + ".css");
-        $('.color-switcher ul li').removeClass('active');
-        $(this).addClass('active');
-    });
+    // /**Theme switcher - DEMO PURPOSE ONLY */
+    // $('.switcher-trigger').click(function () {
+    //     $('.switcher-wrap').toggleClass('active');
+    // });
+    // $('.color-switcher ul li').click(function () {
+    //     var color = $(this).attr('data-color');
+    //     $('#theme-color').attr("href", "css/" + color + ".css");
+    //     $('.color-switcher ul li').removeClass('active');
+    //     $(this).addClass('active');
+    // });
 });
 
 
@@ -116,3 +116,39 @@ function initializeClock(id, endtime) {
 
 const deadline = new Date('Fri Oct 01 2021 20:07:14 GMT-0400');
 initializeClock('clockdiv', deadline);
+
+
+// function launchTransak() {
+//     let transak = new TransakSDK.default({
+//         apiKey: '11eca9d2-ee0e-46d9-9ae4-324cde64c371', // Your API Key
+//         environment: 'PRODUCTION', // STAGING/PRODUCTION
+//         defaultCryptoCurrency: 'BNB',
+//         defaultNetwork: 'BSC',
+//         walletAddress: '', // Your customer wallet address
+//         themeColor: '000000', // App theme color in hex
+//         fiatCurrency: '', // INR/GBP
+//         email: '', // Your customer email address
+//         redirectURL: 'https://app.lep.gold/swap?inputCurrency=ETH&outputCurrency=0x3064bbB132cB072359AE3F98ebEdB2B3663C74ED',
+//         hostURL: window.location.origin,
+//         widgetHeight: '750px',
+//         widgetWidth: '100%'
+//     });
+//     transak.init();
+//     // To get all the events
+//     transak
+//         .on(transak.ALL_EVENTS, (data) => {
+//             console.log(data)
+//         });
+//     // This will trigger when the user marks payment is made.
+//     transak.on(transak.EVENTS.TRANSAK_ORDER_SUCCESSFUL, (orderData) => {
+//         console.log(orderData);
+//         //transak.close();
+//     });
+// }
+// function buyCrypto() {
+//     //  document.window
+//     launchTransak()
+// }
+// window.onload = function () {
+//     launchTransak()
+// }
