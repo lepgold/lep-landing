@@ -1,3 +1,80 @@
+//import TransakSDK from '@transak/transak-sdk'
+
+let transak = new TransakSDK.default({
+    apiKey: '11eca9d2-ee0e-46d9-9ae4-324cde64c371',  // Your API Key (Required)
+    environment: 'PRODUCTION', // STAGING/PRODUCTION (Required)
+    defaultCryptoCurrency: 'BNB',
+    defaultNetworks: 'BSC',
+    walletAddress: '', // Your customer wallet address
+    themeColor: '000000', // App theme color in hex
+    email: '', // Your customer email address (Optional)
+    redirectURL: 'https://app.lep.gold/swap?inputCurrency=ETH&outputCurrency=0x3064bbB132cB072359AE3F98ebEdB2B3663C74ED',
+    hostURL: window.location.origin, // Required field
+    widgetHeight: '800px',
+    widgetWidth: '500px'
+});
+
+
+function handleCrypto() {
+    transak.init();
+
+    // To get all the events
+    transak.on(transak.ALL_EVENTS, (data) => {
+        console.log(data)
+    });
+
+    // This will trigger when the user closed the widget
+    transak.on(transak.EVENTS.TRANSAK_WIDGET_CLOSE, (orderData) => {
+        transak.close();
+    });
+
+    // This will trigger when the user marks payment is made.
+    transak.on(transak.EVENTS.TRANSAK_ORDER_SUCCESSFUL, (orderData) => {
+        console.log(orderData);
+        transak.close();
+    });
+
+
+}
+
+
+
+
+
+// function launchTransak() {
+//     let transak = new TransakSDK.default({
+//         apiKey: '4fcd6904-706b-4aff-bd9d-77422813bbb7', // Your API Key
+//         environment: 'PRODUCTION', // STAGING/PRODUCTION
+//         defaultCryptoCurrency: 'ETH',
+//         walletAddress: '', // Your customer wallet address
+//         themeColor: '000000', // App theme color in hex
+//         fiatCurrency: '', // INR/GBP
+//         email: '', // Your customer email address
+//         redirectURL: '',
+//         hostURL: window.location.origin,
+//         widgetHeight: '550px',
+//         widgetWidth: '100%'
+//     });
+//     transak.init();
+//     // To get all the events
+//     transak
+//         .on(transak.ALL_EVENTS, (data) => {
+//             console.log(data)
+//         });
+//     // This will trigger when the user marks payment is made.
+//     transak.on(transak.EVENTS.TRANSAK_ORDER_SUCCESSFUL, (orderData) => {
+//         console.log(orderData);
+//         //transak.close();
+//     });
+// }
+// window.onload = function () {
+//     launchTransak()
+// }
+
+
+
+
+
 $(function () {
 
     // init feather icons
@@ -117,6 +194,7 @@ function initializeClock(id, endtime) {
 
 const deadline = new Date('Fri Oct 01 2021 20:07:14 GMT-0400');
 initializeClock('clockdiv', deadline);
+
 
 
 // function launchTransak() {
