@@ -4,14 +4,15 @@ let transak = new TransakSDK.default({
     apiKey: '11eca9d2-ee0e-46d9-9ae4-324cde64c371',  // Your API Key (Required)
     environment: 'PRODUCTION', // STAGING/PRODUCTION (Required)
     defaultCryptoCurrency: 'BNB',
-    defaultNetworks: 'BSC',
+    defaultNetwork: 'BSC',
     walletAddress: '', // Your customer wallet address
     themeColor: '000000', // App theme color in hex
     email: '', // Your customer email address (Optional)
     redirectURL: 'https://app.lep.gold/swap?inputCurrency=ETH&outputCurrency=0x3064bbB132cB072359AE3F98ebEdB2B3663C74ED',
     hostURL: window.location.origin, // Required field
     widgetHeight: '800px',
-    widgetWidth: '500px'
+    widgetWidth: '500px',
+    isFeeCalculationHidden: true
 });
 
 
